@@ -11,13 +11,15 @@ import ErrorMessage from "@/app/components/ErrorMessage";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { MdInfo } from "react-icons/md";
+import Spinner from "@/app/components/Spinner";
+import { revalidatePath } from "next/cache";
 type formFields = z.infer<typeof createNewIssueSchema>;
 const CreateNesIssuePage = () => {
   const [apiError, setApiError] = useState("");
 
   const {
     register,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isLoading },
     control,
     handleSubmit,
     reset,
@@ -25,24 +27,29 @@ const CreateNesIssuePage = () => {
     resolver: zodResolver(createNewIssueSchema),
   });
   const router = useRouter();
-  const submitForm = async (data: formFields) => {
+  const formLoading = isSubmitting || isLoading;
+  const submitForm = handleSubmit(async (data: formFields) => {
     try {
       console.log(data);
-      const newIssue = await axios.post("/api/issues", data);
+      const newIssue = await fetch("/api/issues", {
+        body: JSON.stringify(data),
+        cache: "no-store",
+      });
+      revalidatePath("/issues");
       console.log(newIssue);
       reset();
       router.push("/issues");
     } catch (error) {
       setApiError("invalid Data ,please try again ...");
     }
-  };
+  });
   return (
     <>
-      <form className="max-w-xl space-y-2" onSubmit={handleSubmit(submitForm)}>
+      <form className="max-w-xl space-y-2" onSubmit={submitForm}>
         {apiError && (
           <Callout.Root color="red">
             <Callout.Icon className="space-x-2">
-              <MdInfo /> {`  ${apiError}`}
+              <MdInfo /> {`   ${apiError}`}
             </Callout.Icon>
           </Callout.Root>
         )}
@@ -69,12 +76,13 @@ const CreateNesIssuePage = () => {
         </div>
 
         <Button
-          disabled={isSubmitting}
+          disabled={formLoading}
           size="3"
           type="submit"
-          className="cursor-pointer w-full"
+          className="cursor-pointer w-full "
         >
           Submit
+          {formLoading && <Spinner />}
         </Button>
       </form>
     </>

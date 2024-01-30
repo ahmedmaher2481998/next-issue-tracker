@@ -28,3 +28,72 @@
 <!-- - 20 get type out of the zod schema and use it in both front and backend validation -->
 
 <!-- - 21 extracting the error message to a septate component -->
+
+<!-- - 22 add spinner while submitting the form and disable the button -->
+
+<!-- - 23 organize you code move the inline function of submitting the form and move the http call to a separate file for separation of concerns -->
+
+<!-- - 24 show all the issues in the issues page in a redix-ui table ,on mobile make the status and created column disappear also show the status under the title make variant of the table surface ,use fetch instead of the axios -->
+
+<!-- - 25 make a badge component for status with mapper type label and color green,violet,red and make it a separate component ,use record type -->
+
+<!-- - 26 add loading component for the issues page a skeleton,use delay package ,extract the issue action into a separate component and make sure the page loading looks good -->
+
+- 27 show issue details in a different page and separate the loading pages form the issue details and the new issue page and handle non existing ids's and string id
+
+- 28 style the issue details page header for title ,flex for status and date of creation ,md rendered paragraph for description
+
+- 29 preview md content , solve the typography problem
+
+- 30 make styled link component of radix link and next link for the issues titles
+
+  ------ Break ------
+  ------ Code ------
+
+- 31
+
+- 32
+
+- 33
+
+- 34
+
+- 35
+
+- 36
+
+- 37
+
+- 38
+
+- 39
+
+- 40
+
+  ------ Break ------
+  ------ Code ------
+
+- 41
+
+- 42
+
+- 43
+
+- 44
+
+- 45
+
+- 46
+
+- 47
+
+- 48
+
+- 49
+
+- 50
+
+  ------ Break ------
+  ------ Code ------
+  ------ Done for today ------
+  ------- Next goal leenoda work -----

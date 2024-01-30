@@ -1,18 +1,67 @@
-import { Button } from "@radix-ui/themes";
-import { IoMdAdd } from "react-icons/io";
+import { Table } from "@radix-ui/themes";
+import prisma from "@/prisma/client";
+import LinkComponent from "../components/LinkComponent";
+import StatusBadge from "../components/StatusBadge";
+import delay from "delay";
+import { Suspense } from "react";
+import { unstable_noStore } from "next/cache";
+import LoadingPage from "./loading";
+import IssuesActions from "./IssuesActions";
 
-import React from "react";
-import Link from "next/link";
+const getIssues = async () => {
+  unstable_noStore();
 
-const IssuesPage = () => {
+  delay(2000);
+  return await prisma.issue.findMany();
+};
+
+const IssuesPage = async () => {
+  const issues = await getIssues();
+
   return (
     <div>
-      <Button>
-        <Link href={"/issues/new"} className="flex gap-2 items-center">
-          <IoMdAdd width="16" height="16" />
-          New
-        </Link>
-      </Button>
+      <IssuesActions />
+
+      <Table.Root variant="surface" mt={"4"} className="max-w-2xl">
+        <Table.Header>
+          <Table.Row>
+            <Table.ColumnHeaderCell>Title</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className="hidden md:table-cell">
+              Status
+            </Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className="hidden md:table-cell">
+              Create
+            </Table.ColumnHeaderCell>
+          </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
+          <Suspense fallback={<LoadingPage />}>
+            {issues.map(({ id, createdAt, title, status }) => {
+              return (
+                <>
+                  <Table.Row key={id}>
+                    <Table.Cell>
+                      <LinkComponent href={`/issues/${id}`}>
+                        {title}
+                        <div className="block mt-1 md:hidden">
+                          <StatusBadge status={status} />
+                        </div>
+                      </LinkComponent>
+                    </Table.Cell>
+                    <Table.Cell className="hidden md:table-cell">
+                      <StatusBadge status={status} />
+                    </Table.Cell>
+                    <Table.Cell className="hidden md:table-cell">
+                      {createdAt.toDateString()}
+                    </Table.Cell>
+                  </Table.Row>
+                </>
+              );
+            })}
+          </Suspense>
+        </Table.Body>
+      </Table.Root>
     </div>
   );
 };
