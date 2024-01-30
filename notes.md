@@ -9,6 +9,22 @@
 <!-- - 11 setting up orm (watch a good tutorial about typeorm to use it comfortably )
 - see a tutorial about postgres too to work more easily with it -->
 
-- 12 make issue model to make issues table id, title,description text type,enum type status open,in progress,closed ,created at , updated at
+<!-- - 12 make issue model to make issues table id, title,description text type,enum type status open,in progress,closed ,created at , updated at
 - create migration , apply it
-- 13 create issues route and use zod to validate data
+- 13 create issues route and use zod to validate data -->
+
+<!-- - 14 add radix ui to our project , import style sheet , wrap everything with theme from radix
+- we created a new routePage containing s form consisting of a textfield for the issue title and a text area for the description
+- 16 make sure the styles is using the poppies font as intended -->
+
+<!-- - 17 use marDown Editor instead od text area ,react simple md editor -->
+
+<!-- - 18 use react hook form to handle validation and form sublimation hook it up to log all data in the console -->
+
+<!-- - we thee uses axios to make a http request this is end when u can create an issue from the front end and redirect to the '/' route -->
+
+<!-- - 19 handling errors from zod rend validation errors to the front and display them in a good way and axios try-catch display it in a red call-out -->
+
+<!-- - 20 get type out of the zod schema and use it in both front and backend validation -->
+
+<!-- - 21 extracting the error message to a septate component -->

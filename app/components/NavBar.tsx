@@ -10,7 +10,6 @@ const links = [
 
 const NavBar = () => {
   const currentPathName = usePathname();
-  console.log(currentPathName);
   return (
     <nav className="px-8 space-x-5 border-b-2 h-14  flex items-center ">
       <Link href={"/"}>
