@@ -3,13 +3,16 @@ import Link from "next/link";
 import { AiFillBug } from "react-icons/ai";
 import { cn } from "../utils";
 import { usePathname } from "next/navigation";
-const links = [
+import { useState } from "react";
+type LinkType = { label: string; href: string };
+const links: LinkType[] = [
   { label: "dashboard", href: "/" },
   { label: "issues", href: "/issues" },
 ];
 
 const NavBar = () => {
   const currentPathName = usePathname();
+
   return (
     <nav className="px-8 space-x-5 border-b-2 h-14  flex items-center ">
       <Link href={"/"}>
@@ -22,8 +25,13 @@ const NavBar = () => {
             className={cn(
               "transition-colors text-zinc-400  hover:text-zinc-800",
               {
-                "text-zinc-800 underline underline-offset-2":
-                  currentPathName === href,
+                "text-zinc-800 underline underline-offset-2": (() => {
+                  if (href !== "/") {
+                    return currentPathName.startsWith(href);
+                  } else {
+                    return currentPathName === "/";
+                  }
+                })(),
               }
             )}
             key={href}
