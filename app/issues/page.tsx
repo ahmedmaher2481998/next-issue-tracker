@@ -39,24 +39,22 @@ const IssuesPage = async () => {
           <Suspense fallback={<LoadingPage />}>
             {issues.map(({ id, createdAt, title, status }) => {
               return (
-                <>
-                  <Table.Row key={id}>
-                    <Table.Cell>
-                      <LinkComponent href={`/issues/${id}`}>
-                        {title}
-                        <div className="block mt-1 md:hidden">
-                          <StatusBadge status={status} />
-                        </div>
-                      </LinkComponent>
-                    </Table.Cell>
-                    <Table.Cell className="hidden md:table-cell">
-                      <StatusBadge status={status} />
-                    </Table.Cell>
-                    <Table.Cell className="hidden md:table-cell">
-                      {createdAt.toDateString()}
-                    </Table.Cell>
-                  </Table.Row>
-                </>
+                <Table.Row key={id}>
+                  <Table.Cell>
+                    <LinkComponent href={`/issues/${id}`}>
+                      {title}
+                      <div className="block mt-1 md:hidden">
+                        <StatusBadge status={status} />
+                      </div>
+                    </LinkComponent>
+                  </Table.Cell>
+                  <Table.Cell className="hidden md:table-cell">
+                    <StatusBadge status={status} />
+                  </Table.Cell>
+                  <Table.Cell className="hidden md:table-cell">
+                    {createdAt.toDateString()}
+                  </Table.Cell>
+                </Table.Row>
               );
             })}
           </Suspense>

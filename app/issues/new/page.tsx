@@ -32,14 +32,16 @@ const CreateNesIssuePage = () => {
     try {
       console.log(data);
       const newIssue = await fetch("/api/issues", {
+        method: "POST",
         body: JSON.stringify(data),
         cache: "no-store",
       });
-      revalidatePath("/issues");
+
       console.log(newIssue);
       reset();
       router.push("/issues");
     } catch (error) {
+      console.log("error", error);
       setApiError("invalid Data ,please try again ...");
     }
   });
