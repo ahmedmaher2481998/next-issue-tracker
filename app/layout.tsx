@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
-import "react-loading-skeleton/dist/skeleton.css";
 import "./theme-config.css";
 import NavBar from "./components/NavBar";
 import { Theme, ThemePanel } from "@radix-ui/themes";

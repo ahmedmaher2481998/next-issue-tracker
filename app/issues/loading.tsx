@@ -1,8 +1,6 @@
 import { Table } from "@radix-ui/themes";
-import { ReactNode } from "react";
-
-import Skeleton from "react-loading-skeleton";
 import IssuesActions from "./IssuesActions";
+import LoadingSkeleton from "@/app/components/LoadingSkeleton";
 // TODO
 //  test the loading page with out the suspense boundary
 const LoadingPage = () => {
@@ -39,13 +37,13 @@ const LoadingPart = (): JSX.Element => {
       {arr.map((k) => (
         <Table.Row key={k}>
           <Table.Cell>
-            <Skeleton width={k + 50 + "%"} />
+            <LoadingSkeleton width={k + 50 + "%"} />
           </Table.Cell>
           <Table.Cell className="hidden md:table-cell">
-            <Skeleton width={k - 10 + "%"} />
+            <LoadingSkeleton width={k - 10 + "%"} />
           </Table.Cell>
           <Table.Cell className="hidden md:table-cell">
-            <Skeleton width={k + "%"} />
+            <LoadingSkeleton width={k + "%"} />
           </Table.Cell>
         </Table.Row>
       ))}

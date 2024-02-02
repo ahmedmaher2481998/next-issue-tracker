@@ -11,12 +11,12 @@ import IssuesActions from "./IssuesActions";
 const getIssues = async () => {
   unstable_noStore();
 
-  delay(2000);
   return await prisma.issue.findMany();
 };
 
 const IssuesPage = async () => {
   const issues = await getIssues();
+  delay(2000, { value: "Done...." });
 
   return (
     <div>
@@ -63,5 +63,5 @@ const IssuesPage = async () => {
     </div>
   );
 };
-
+export const dynamic = "no-store";
 export default IssuesPage;

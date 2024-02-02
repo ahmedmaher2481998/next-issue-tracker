@@ -50,25 +50,25 @@
 ------ Break ------
 ------ Code ------
 
-- 31
+- 31 make loading for the issue details page use box com apply delay make header skeleton looks good ,organize imports ,make e a new issue loading skeleton make sure to load the css file
 
-- 32
+- 32 fix the error, disable ssr while lazy loading a component
 
-- 33
+- 33 cleaning our code ,organize imports ,combine imports , skeleton
 
-- 34
+- 34 make a grid to add the edit btn make 2 boxes use break points for mobile layout ,add react redix icons make it href to issues/[id]/edit
 
-- 35
+- 35 single responsibility principle in all the pages an components starting with the issue details page
 
-- 36
+- 36 add new components folder in the issues section and make a components form prefix it with \_ to get it out of the routing system , make the issue edit page add the issue fetched a default value for the issueForm Component
 
-- 37
+- 37 use Put form completely replacing an entity and patch for changing some of it's properties, make api for editing the issue validate it with issue schema
 
-- 38
+- 38 test the update issue in post man and in the app it self , watch for the cache problem
 
-- 39
+- 39 (reWatch when you het here ) build and start the app preserve the cache problem , next js route segment config,opt out og server/client cache
 
-- 40
+- 40 improving the loading experience ,dynamically import the whole issue form ,for dynamic import from the whole form and while refreshing also
 
   ------ Break ------
   ------ Code ------
@@ -95,5 +95,57 @@
 
   ------ Break ------
   ------ Code ------
-  ------ Done for today ------
-  ------- Next goal leenoda work -----
+
+- 51
+
+- 52
+
+- 53
+
+- 54
+
+- 55
+
+- 56
+
+- 57
+
+- 58
+
+- 59
+
+- 60
+
+  ------ Break ------
+  ------ Code ------
+
+- 61
+
+- 62
+
+- 63
+
+- 64
+
+- 65
+
+- 66
+
+- 67
+
+- 68
+
+- 69
+
+- 70
+
+  ------ Done This holiday ------
+  ------- Next goal finish the app -----
+
+> after finishing this app
+
+> we will focus on ui ux and making visually appealing interfaces
+
+> will devote a month for that and during doing that we will work on ** Typeorm , Nest js , Postgres , State management ** **_ Do this by working on projects not watching tutorials ,ur allowed for 1-2 days for a tutorials on a single subject of the above _**
+
+> basic front end skills ['css animation','js weird parts','core js knowledge','dom manipulation','vue & nuxt intro'],
